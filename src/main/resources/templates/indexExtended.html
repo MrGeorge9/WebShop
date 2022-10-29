@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="activePage">
+      <h1>
+        Gaming Evolution
+      </h1>
+
+      <div>
+        <a class="selectors" th:href="@{/gamesExtended}">ALL GAMES</a>
+        <a class="selectors" th:href="@{/rpg}">RPG TITLES</a>
+        <a class="selectors" th:href="@{/fps}">FPS TITLES</a>
+        <a class="selectors" th:href="@{/action}">ACTION TITLES</a>
+        <a class="selectors" th:href="@{/euro}">EURO</a>
+        <a class="selectors" th:href="@{/dollar}">DOLLAR</a>
+      </div>
+
+      <form action="#" th:action="@{/filter}" method="post" id="form">
+        <label for="number" id="formLabel">Filter by price</label>
+        <input type="number" name="number" id="number" placeholder="00" required/>
+        <input type="submit" id="formButtonAbove" class="formButton" value="Above" name="inputButton"/>
+        <input type="submit" id="formButtonBellow" class="formButton" value="Below" name="inputButton"/>
+        <input type="submit" id="formButtonExactly" class="formButton" value="Exactly" name="inputButton"/>
+      </form>
+
+      <table th:if="${gamesExtended}!=null">
+        <th>Name of Game</th>
+        <th>Genre</th>
+        <th>Release Year</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity of stock</th>
+        <th>User review</th>
+        <tr th:each = "game, stat : ${gamesExtended}" th:object= "${game}">
+          <td th:text = "*{name}"></td>
+          <td th:text = "*{genre}"></td>
+          <td th:text = "*{year}"></td>
+          <td th:text = "*{description}"></td>
+          <td th:if="${currency}=='e'" th:text="*{price} + '€'"></td>
+          <td th:if="${currency}=='d'" th:text="*{price} + '$'"></td>
+          <td th:text="*{quantity}" ></td>
+          <td th:text="*{review} + '%'" ></td>
+        </tr>
+      </table>
+
+      <p th:if="${average}!=null" th:text="'Average stock of games is: ' + ${average}" id="averageStock"></p>
+      <a class="selectors" id="nextButton" th:href="@{/games}">BACK</a>
+    </div>
+  </body>
+</html>

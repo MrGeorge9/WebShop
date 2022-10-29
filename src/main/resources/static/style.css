@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+body {
+    background-image: url("background.jpg");
+}
+
+h1 {
+    color: #E1A400;
+    display: block;
+    padding: 10px 0 10px 30px;
+    margin-bottom: 50px;
+    background-color: black;
+    text-shadow: 2px 2px 10px white;
+    text-decoration: none;
+}
+
+a {
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+#activePage {
+    padding-bottom: 800px;
+    display: block;
+    margin: 0 200px;
+    color: white;
+    background-color: #231F20;
+    box-shadow: 1px 3px 5px grey;
+}
+
+.selectors {
+    color: white;
+    display: inline;
+    margin-left: 30px;
+    border: 3px solid white;
+    border-radius: 5px;
+    background-color: #E1A400;
+}
+
+.selectors:hover {
+    color: white;
+    display: inline;
+    margin-left: 30px;
+    border: 3px solid white;
+    border-radius: 5px;
+    background-color: black;
+}
+
+table, th, td {
+    margin-top: 50px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+td {
+    background-color: white;
+    color: black;
+}
+
+table {
+    margin-left: 100px;
+    border: 3px solid black;
+    box-shadow: 3px 3px 40px #888888;
+}
+
+th {
+    background-color: #E1A400;
+    color:white;
+    border-bottom: 2px solid black;
+}
+
+#averageStock {
+    margin: 100px;
+    color: #E1A400;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#form {
+    margin: 50px 50px 50px 370px;
+}
+
+#formLabel {
+    margin-bottom: 5px;
+    display: block;
+}
+
+#word {
+    padding-left: 10px;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+#word:focus {
+    padding-left: 10px;
+    height: 30px;
+    width: 300px;
+    border: 3px solid #E1A400;
+    border-radius: 5px;
+}
+
+#number {
+    padding-left: 10px;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+#number:focus {
+    padding-left: 10px;
+    height: 30px;
+    width: 300px;
+    border: 3px solid #E1A400;
+    border-radius: 5px;
+}
+
+.formButton  {
+    background-color: #E1A400;
+    color: white;
+    height: 36px;
+    width: 100px;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+.formButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    height: 36px;
+    width: 100px;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+#nextButton {
+    float: right;
+    display: inline;
+    margin-right: 50px;
+}

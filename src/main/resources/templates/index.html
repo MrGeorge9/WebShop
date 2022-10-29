@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf Exercise #</title>
+        <link rel="stylesheet" th:href="@{/style.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="activePage">
+
+            <h1>Gaming Evolution</h1>
+
+            <div id="selectors">
+                <a class="selectors" th:href="@{/games}">ALL GAMES</a>
+                <a class="selectors" th:href="@{/available}">ONLY AVAILABLE</a>
+                <a class="selectors" th:href="@{/cheapest}">CHEAPEST FIRST</a>
+                <a class="selectors" th:href="@{/open}">CONTAINS OPEN</a>
+                <a class="selectors" th:href="@{/average}">AVERAGE STOCK</a>
+                <a class="selectors" th:href="@{/mostExpensive}">MOST EXPENSIVE AVAILABLE</a>
+            </div>
+
+            <form action="#" th:action="@{/search}" method="post" id="form">
+                <label for="word" id="formLabel">Search for</label>
+                <input type="text" name="word" id="word" placeholder="something like world" required/>
+                <button type="submit" id="formButton" class="formButton">Search</button>
+            </form>
+
+            <table th:if="${games}!=null">
+                <th>Name of Game</th>
+                <th>Genre</th>
+                <th>Release Year</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity of stock</th>
+                <tr th:each = "game, stat : ${games}" th:object= "${game}">
+                    <td th:text = "*{name}"></td>
+                    <td th:text = "*{genre}"></td>
+                    <td th:text = "*{year}"></td>
+                    <td th:text = "*{description}"></td>
+                    <td th:text="*{price} + '€'"></td>
+                    <td th:text="*{quantity}" ></td>
+                </tr>
+            </table>
+
+            <p th:if="${average}!=null" th:text="'Average stock of games is: ' + ${average}" id="averageStock"></p>
+            <a class="selectors" id="nextButton" th:href="@{/gamesExtended}">NEXT</a>
+        </div>
+    </body>
+</html>
